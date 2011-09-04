@@ -1,0 +1,30 @@
+# Regular expressions match against the values of the enumeration org.bukkit.Material
+# see Material enum here: http://jd.bukkit.org/doxygen/d7/dd9/namespaceorg_1_1bukkit.html
+
+# Enable block click switching when the held item matches the following pattern (use AIR to specify an empty hand)
+enable_switching_regex: .*_AXE|.*_PICKAXE|.*_SPADE|AIR
+
+# Enable item switching when left clicking air (will switch to a specific item e.g. sword)
+air_click_switching:
+    enabled: false
+    item_regex: .*_SWORD
+
+# Left clicking a block that matches one of the blockregexs will
+# attempt to switch the held item to something matching the itemregex
+block_matchers:
+    - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*
+      item_regex:  .*_SPADE
+    - block_regex: LOG|WOOD
+      item_regex:  .*_AXE
+    - description: blocks harvestable by diamond pickaxe only
+      block_regex: OBSIDIAN
+      item_regex:  DIAMOND_PICKAXE
+    - description: blocks harvestable by diamond or iron pickaxe only
+      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|IRON_BLOCK
+      item_regex:  (IRON|DIAMOND)_PICKAXE
+    - description: blocks harvestable by stone, iron and diamond pickaxes
+      block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
+      item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
+    - description: blocks harvestable by stone or better pickaxes
+      block_regex: .*STONE|COAL_ORE|BRICK|SLAB|COBBLESTONE_STAIRS|STONE_PLATE|NETHERRACK|MOB_SPAWNER|.*FURNACE|DISPENSER
+      item_regex:  .*_PICKAXE
