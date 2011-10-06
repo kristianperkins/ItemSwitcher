@@ -15,29 +15,29 @@ import com.github.kp.itemswitcher.listener.ItemSwitcherPlayerListener;
 
 public class ItemSwitcher extends JavaPlugin {
 
-	private final Configuration configuration;
+    private final Configuration configuration;
 
-	private static final Logger log = Logger.getLogger("Minecraft");
+    private static final Logger log = Logger.getLogger("Minecraft");
 
-	private final PlayerListener playerListener;
+    private final PlayerListener playerListener;
 
-	public ItemSwitcher() {
-		// Load the configuration file
-		File configFile = new File("plugins", "ItemSwitcherSettings.yml");
-		log.info(configFile.getAbsolutePath());
-		configuration = new Configuration(configFile);
-		configuration.load();
+    public ItemSwitcher() {
+        // Load the configuration file
+        File configFile = new File("plugins", "ItemSwitcherSettings.yml");
+        log.info(configFile.getAbsolutePath());
+        configuration = new Configuration(configFile);
+        configuration.load();
 
-		playerListener = new ItemSwitcherPlayerListener(configuration);
-	}
-	
-	public void onDisable() {
-		log.info("ItemSwitcher has been disabled");
-	}
+        playerListener = new ItemSwitcherPlayerListener(configuration);
+    }
+    
+    public void onDisable() {
+        log.info("ItemSwitcher has been disabled");
+    }
 
-	public void onEnable() {
+    public void onEnable() {
 
-		log.info("loaded configuration: " + configuration);
+        log.info("loaded configuration: " + configuration);
 
         // Register our events
         PluginManager pm = getServer().getPluginManager();
@@ -47,5 +47,5 @@ public class ItemSwitcher extends JavaPlugin {
 
         PluginDescriptionFile pdfFile = this.getDescription();
         log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
-	}
+    }
 }

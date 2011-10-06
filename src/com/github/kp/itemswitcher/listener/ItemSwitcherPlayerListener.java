@@ -15,61 +15,61 @@ import org.bukkit.util.config.ConfigurationNode;
 
 public class ItemSwitcherPlayerListener extends PlayerListener {
 
-	private static final Logger log = Logger.getLogger("Minecraft");
+    private static final Logger log = Logger.getLogger("Minecraft");
 
-	// air clicking vars
-	private final boolean airClickSwitchingEnabled;
-	private final String airClickItemRegex;
+    // air clicking vars
+    private final boolean airClickSwitchingEnabled;
+    private final String airClickItemRegex;
 
-	// item in hand to enable switching
-	private final String enableSwitchingRegex;
-	private final List<ItemSwitcherBlockMatcher> blockMatchers;
+    // item in hand to enable switching
+    private final String enableSwitchingRegex;
+    private final List<ItemSwitcherBlockMatcher> blockMatchers;
 
-	@SuppressWarnings("unchecked")
-	public ItemSwitcherPlayerListener(final Configuration configuration) {
+    @SuppressWarnings("unchecked")
+    public ItemSwitcherPlayerListener(final Configuration configuration) {
 
-		ConfigurationNode node = configuration.getNode("air_click_switching");
-		airClickSwitchingEnabled = node.getBoolean("enabled", false);
-		airClickItemRegex = airClickSwitchingEnabled ? node.getString("item_regex") : null;
+        ConfigurationNode node = configuration.getNode("air_click_switching");
+        airClickSwitchingEnabled = node.getBoolean("enabled", false);
+        airClickItemRegex = airClickSwitchingEnabled ? node.getString("item_regex") : null;
 
-		// Load block matcher regex
-		enableSwitchingRegex = configuration.getString("enable_switching_regex");
-		blockMatchers = new ArrayList<ItemSwitcherBlockMatcher>();
+        // Load block matcher regex
+        enableSwitchingRegex = configuration.getString("enable_switching_regex");
+        blockMatchers = new ArrayList<ItemSwitcherBlockMatcher>();
 
-		for (Object matcherNode : configuration.getList("block_matchers")) {
-			Map<String, String> matcherMap = (Map<String, String>) matcherNode;
-			blockMatchers.add(new ItemSwitcherBlockMatcher(
-					matcherMap.get("block_regex"), matcherMap.get("item_regex")));
-		}
-		log.info("ItemSwitcher loaded " + blockMatchers.size() + " block matching rules.");
-	}
+        for (Object matcherNode : configuration.getList("block_matchers")) {
+            Map<String, String> matcherMap = (Map<String, String>) matcherNode;
+            blockMatchers.add(new ItemSwitcherBlockMatcher(
+                    matcherMap.get("block_regex"), matcherMap.get("item_regex")));
+        }
+        log.info("ItemSwitcher loaded " + blockMatchers.size() + " block matching rules.");
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void onPlayerInteract(final PlayerInteractEvent event) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void onPlayerInteract(final PlayerInteractEvent event) {
 
-		switch (event.getAction()) {
+        switch (event.getAction()) {
 
-			case LEFT_CLICK_AIR:
-				if (airClickSwitchingEnabled) {
-					switchHeldItem(event.getPlayer(), airClickItemRegex);
-				}
-				break;
-			case LEFT_CLICK_BLOCK:
+            case LEFT_CLICK_AIR:
+                if (airClickSwitchingEnabled) {
+                    switchHeldItem(event.getPlayer(), airClickItemRegex);
+                }
+                break;
+            case LEFT_CLICK_BLOCK:
 
-				ItemStack itemInHand = event.getPlayer().getItemInHand();
-				if (String.valueOf(itemInHand.getType()).matches(enableSwitchingRegex)) {
-					// switch to something useful
-					String blockTypeString = event.getClickedBlock().getType().toString();
-					for (ItemSwitcherBlockMatcher blockMatcher : blockMatchers) {
-						if (blockTypeString.matches(blockMatcher.getBlockRegex())) {
-							switchHeldItem(event.getPlayer(), blockMatcher.getItemRegex());
-							break;
-						}
-					}					
-				}
+                ItemStack itemInHand = event.getPlayer().getItemInHand();
+                if (String.valueOf(itemInHand.getType()).matches(enableSwitchingRegex)) {
+                    // switch to something useful
+                    String blockTypeString = event.getClickedBlock().getType().toString();
+                    for (ItemSwitcherBlockMatcher blockMatcher : blockMatchers) {
+                        if (blockTypeString.matches(blockMatcher.getBlockRegex())) {
+                            switchHeldItem(event.getPlayer(), blockMatcher.getItemRegex());
+                            break;
+                        }
+                    }                    
+                }
 
-				break;
-		}
-	}
+                break;
+        }
+    }
 }
