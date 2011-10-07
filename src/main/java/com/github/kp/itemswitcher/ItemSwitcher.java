@@ -43,7 +43,6 @@ public class ItemSwitcher extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
 
         pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.Normal, this);
-//        pm.registerEvent(Event.Type.ENTITY_TARGET, entityListener, Priority.Normal, this);
 
         PluginDescriptionFile pdfFile = this.getDescription();
         log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
