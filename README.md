@@ -2,7 +2,7 @@ ItemSwitcher
 ============
 
 Bukkit plugin to auto switch between tools (axe, pickaxe and shovel) as needed
-when mining.  Compatible and tested with [CraftBukkit](https://github.com/Bukkit/CraftBukkit) 1060 and MC 1.7.3.
+when mining.  Compatible and tested with [CraftBukkit](https://github.com/Bukkit/CraftBukkit) 1185 and MC 1.8.1.
 
 
 TODO:
