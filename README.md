@@ -9,4 +9,3 @@ TODO:
 
  * add permissions
  * add command to enable/disable
- * test with latest version of bukkit
