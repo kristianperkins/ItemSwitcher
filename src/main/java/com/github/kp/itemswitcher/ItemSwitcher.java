@@ -1,32 +1,33 @@
 package com.github.kp.itemswitcher;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Logger;
 
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.event.player.PlayerListener;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.util.config.Configuration;
 
 import com.github.kp.itemswitcher.listener.ItemSwitcherPlayerListener;
 
 public class ItemSwitcher extends JavaPlugin {
 
-    private final Configuration configuration;
+    private final YamlConfiguration configuration;
 
     private static final Logger log = Logger.getLogger("Minecraft");
 
-    private final PlayerListener playerListener;
+    private final Listener playerListener;
 
-    public ItemSwitcher() {
+    public ItemSwitcher() throws FileNotFoundException, IOException, InvalidConfigurationException {
         // Load the configuration file
         File configFile = new File("plugins", "ItemSwitcherSettings.yml");
         log.info(configFile.getAbsolutePath());
-        configuration = new Configuration(configFile);
-        configuration.load();
+        configuration = new YamlConfiguration();
+        configuration.load(configFile);
 
         playerListener = new ItemSwitcherPlayerListener(configuration);
     }
@@ -41,8 +42,7 @@ public class ItemSwitcher extends JavaPlugin {
 
         // Register our events
         PluginManager pm = getServer().getPluginManager();
-
-        pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.Normal, this);
+        getServer().getPluginManager().registerEvents(playerListener, this);
 
         PluginDescriptionFile pdfFile = this.getDescription();
         log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");

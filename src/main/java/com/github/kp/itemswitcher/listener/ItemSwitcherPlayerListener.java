@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.config.Configuration;
-import org.bukkit.util.config.ConfigurationNode;
 
-public class ItemSwitcherPlayerListener extends PlayerListener {
+public class ItemSwitcherPlayerListener implements Listener {
 
     private static final Logger log = Logger.getLogger("Minecraft");
 
@@ -28,7 +29,7 @@ public class ItemSwitcherPlayerListener extends PlayerListener {
     @SuppressWarnings("unchecked")
     public ItemSwitcherPlayerListener(final Configuration configuration) {
 
-        ConfigurationNode node = configuration.getNode("air_click_switching");
+        ConfigurationSection node = configuration.getConfigurationSection("air_click_switching");
         airClickSwitchingEnabled = node.getBoolean("enabled", false);
         airClickItemRegex = airClickSwitchingEnabled ? node.getString("item_regex") : null;
 
@@ -44,8 +45,8 @@ public class ItemSwitcherPlayerListener extends PlayerListener {
         log.info("ItemSwitcher loaded " + blockMatchers.size() + " block matching rules.");
     }
 
+    @EventHandler
     @SuppressWarnings("unchecked")
-    @Override
     public void onPlayerInteract(final PlayerInteractEvent event) {
 
         switch (event.getAction()) {

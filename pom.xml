@@ -9,25 +9,28 @@
 
   <repositories>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/artifactory/repo</url>
+      <id>repobo-snap</id>
+      <url>http://repo.bukkit.org/content/groups/public</url>
     </repository>
   </repositories>
+
   <pluginRepositories>
     <pluginRepository>
       <id>bukkit-plugins</id>
-      <url>http://repo.bukkit.org/artifactory/plugins-release</url>
+      <url>http://repo.bukkit.org/content/groups/public</url>
     </pluginRepository>
   </pluginRepositories>
+
   <dependencies>
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>1.2.5-R4.1-SNAPSHOT</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
   </dependencies>
+
   <build>
     <finalName>ItemSwitcher</finalName>
     <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
