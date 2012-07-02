@@ -57,7 +57,6 @@ public class ItemSwitcherPlayerListener implements Listener {
                 }
                 break;
             case LEFT_CLICK_BLOCK:
-
                 ItemStack itemInHand = event.getPlayer().getItemInHand();
                 if (String.valueOf(itemInHand.getType()).matches(enableSwitchingRegex)) {
                     // switch to something useful
@@ -69,7 +68,6 @@ public class ItemSwitcherPlayerListener implements Listener {
                         }
                     }                    
                 }
-
                 break;
         }
     }
