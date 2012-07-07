@@ -5,6 +5,7 @@ import static com.github.kp.itemswitcher.util.ItemSwitcherUtils.switchHeldItem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.Configuration;
@@ -25,10 +26,12 @@ public class ItemSwitcherPlayerListener implements Listener {
     // item in hand to enable switching
     private final String enableSwitchingRegex;
     private final List<ItemSwitcherBlockMatcher> blockMatchers;
+    private final Set<String> enabledPlayers;
 
     @SuppressWarnings("unchecked")
-    public ItemSwitcherPlayerListener(final Configuration configuration) {
+    public ItemSwitcherPlayerListener(final Configuration configuration, Set<String> enabledPlayers) {
 
+        this.enabledPlayers = enabledPlayers;
         ConfigurationSection node = configuration.getConfigurationSection("air_click_switching");
         airClickSwitchingEnabled = node.getBoolean("enabled", false);
         airClickItemRegex = airClickSwitchingEnabled ? node.getString("item_regex") : null;
@@ -48,9 +51,10 @@ public class ItemSwitcherPlayerListener implements Listener {
     @EventHandler
     @SuppressWarnings("unchecked")
     public void onPlayerInteract(final PlayerInteractEvent event) {
-
+        if (!enabledPlayers.contains(event.getPlayer().getName())) {
+            return;
+        }
         switch (event.getAction()) {
-
             case LEFT_CLICK_AIR:
                 if (airClickSwitchingEnabled) {
                     switchHeldItem(event.getPlayer(), airClickItemRegex);

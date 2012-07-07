@@ -1,4 +1,12 @@
 name: ItemSwitcher
 main: com.github.kp.itemswitcher.ItemSwitcher
-version: 0.1
+version: ${project.version}
 author: k-p
+description: When enabled will automatically switch between tools during mining. 
+commands:
+   switch:
+      description: Allows auto switching of tools during mining.
+      usage: /switch on|off
+      permission: itemswitcher.switch
+      permission-message: You don't have <permission>
+
