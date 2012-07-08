@@ -11,7 +11,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
 
     private final Set<String> enabledPlayers;
     public ItemSwitcherCommandExecutor(Set<String> enabledPlayers) {
-        this.enabledPlayers = enabledPlayers;    
+        this.enabledPlayers = enabledPlayers;
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -19,7 +19,6 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
         if (sender instanceof Player) {
             player = (Player) sender;
         }
-     
         if (cmd.getName().equalsIgnoreCase("switch")) {
             if (player == null) {
                 sender.sendMessage("this command can only be run by a player");
