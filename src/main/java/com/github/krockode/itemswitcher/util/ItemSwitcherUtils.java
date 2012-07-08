@@ -1,4 +1,4 @@
-package com.github.kp.itemswitcher.util;
+package com.github.krockode.itemswitcher.util;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

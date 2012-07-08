@@ -1,4 +1,4 @@
-package com.github.kp.itemswitcher.listener;
+package com.github.krockode.itemswitcher.listener;
 
 import java.util.Set;
 
@@ -19,7 +19,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
         if (sender instanceof Player) {
             player = (Player) sender;
         }
-        if (cmd.getName().equalsIgnoreCase("switch")) {
+        if (cmd.getName().equalsIgnoreCase("switcher")) {
             if (player == null) {
                 sender.sendMessage("this command can only be run by a player");
             } else if (args.length < 1) {

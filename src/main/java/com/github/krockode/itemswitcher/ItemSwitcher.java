@@ -1,4 +1,4 @@
-package com.github.kp.itemswitcher;
+package com.github.krockode.itemswitcher;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -9,8 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.github.kp.itemswitcher.listener.ItemSwitcherCommandExecutor;
-import com.github.kp.itemswitcher.listener.ItemSwitcherPlayerListener;
+import com.github.krockode.itemswitcher.listener.ItemSwitcherCommandExecutor;
+import com.github.krockode.itemswitcher.listener.ItemSwitcherPlayerListener;
 
 public class ItemSwitcher extends JavaPlugin {
 
@@ -27,9 +27,8 @@ public class ItemSwitcher extends JavaPlugin {
         PluginDescriptionFile pdfFile = this.getDescription();
         Listener playerListener = new ItemSwitcherPlayerListener(getConfig(), enabledPlayers);
         getServer().getPluginManager().registerEvents(playerListener, this);
-
         ItemSwitcherCommandExecutor executor = new ItemSwitcherCommandExecutor(enabledPlayers);
-        getCommand("switch").setExecutor(executor);
+        getCommand("switcher").setExecutor(executor);
         log.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
     }
 }

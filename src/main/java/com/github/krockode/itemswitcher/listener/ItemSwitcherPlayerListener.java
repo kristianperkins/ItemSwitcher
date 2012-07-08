@@ -1,6 +1,6 @@
-package com.github.kp.itemswitcher.listener;
+package com.github.krockode.itemswitcher.listener;
 
-import static com.github.kp.itemswitcher.util.ItemSwitcherUtils.switchHeldItem;
+import static com.github.krockode.itemswitcher.util.ItemSwitcherUtils.switchHeldItem;
 
 import java.util.ArrayList;
 import java.util.List;

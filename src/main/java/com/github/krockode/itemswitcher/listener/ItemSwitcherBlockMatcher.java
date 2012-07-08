@@ -1,4 +1,4 @@
-package com.github.kp.itemswitcher.listener;
+package com.github.krockode.itemswitcher.listener;
 
 public class ItemSwitcherBlockMatcher {
 
