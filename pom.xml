@@ -4,7 +4,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.krockode</groupId>
   <artifactId>ItemSwitcher</artifactId>
-  <name>SampleBukkitPlugin</name>
   <version>0.0.1-SNAPSHOT</version>
   <url>https://github.com/krockode/ItemSwitcher</url>
 
