@@ -2,6 +2,8 @@ package com.github.krockode.itemswitcher.listener;
 
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,23 +21,20 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
         if (sender instanceof Player) {
             player = (Player) sender;
         }
-        if (cmd.getName().equalsIgnoreCase("switcher")) {
-            if (player == null) {
-                sender.sendMessage("this command can only be run by a player");
-            } else if (args.length < 1) {
-                sender.sendMessage("specify on or off");
-            } else {
-                if ("on".equals(args[0])) {
-                    enabledPlayers.add(player.getName());
-                    sender.sendMessage("Tool switching On");
-                } else if ("off".equals(args[0])) {
-                    enabledPlayers.remove(player.getName());
-                    sender.sendMessage("Tool switching Off");
-                }
-            }
+        String option = args.length > 0 ? args[0] : "";
+        if ((player == null) || ("list".equals(option))) {
+            sender.sendMessage("Players using item switching (" + enabledPlayers.size() + "): " +
+                    ChatColor.GREEN + StringUtils.join(enabledPlayers, ChatColor.RESET + ", " + ChatColor.GREEN));
             return true;
         }
-        return false;
+        if (enabledPlayers.contains(player.getName())) {
+            enabledPlayers.remove(player.getName());
+            player.sendMessage(ChatColor.YELLOW + "Item switching Off");
+        } else {
+            enabledPlayers.add(player.getName());
+            player.sendMessage(ChatColor.YELLOW + "Item switching On");
+        }
+        return true;
     }
 
 

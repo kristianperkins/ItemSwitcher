@@ -6,7 +6,9 @@ description: When enabled will automatically switch between tools during mining.
 commands:
    switcher:
       description: Allows auto switching of tools during mining.
-      usage: /switcher on|off
+      usage: |
+        /switcher [list]
+        toggle the Players autoswitching on and off
       permission: itemswitcher.switcher
       permission-message: You don't have <permission>
 
