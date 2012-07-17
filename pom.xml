@@ -11,6 +11,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+   <scm>
+    <connection>scm:git:git://github.com/krockode/ItemSwitcher.git</connection>
+    <url>scm:git:git://github.com/krockode/ItemSwitcher.git</url>
+    <developerConnection>scm:git:git://github.com/krockode/ItemSwitcher.git</developerConnection>
+  </scm>
+
   <repositories>
     <repository>
       <id>repobo-snap</id>
