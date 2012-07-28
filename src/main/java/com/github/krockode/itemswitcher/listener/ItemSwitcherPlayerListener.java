@@ -14,11 +14,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 public class ItemSwitcherPlayerListener implements Listener {
 
-    private static final Logger log = Logger.getLogger("Minecraft");
-
+    private final Logger log;
     // air clicking vars
     private final boolean airClickSwitchingEnabled;
     private final String airClickItemRegex;
@@ -29,8 +29,9 @@ public class ItemSwitcherPlayerListener implements Listener {
     private final Set<String> enabledPlayers;
 
     @SuppressWarnings("unchecked")
-    public ItemSwitcherPlayerListener(final Configuration configuration, Set<String> enabledPlayers) {
-
+    public ItemSwitcherPlayerListener(final Plugin plugin, Set<String> enabledPlayers) {
+        this.log = plugin.getLogger();
+        Configuration configuration = plugin.getConfig();
         this.enabledPlayers = enabledPlayers;
         ConfigurationSection node = configuration.getConfigurationSection("air_click_switching");
         airClickSwitchingEnabled = node.getBoolean("enabled", false);
@@ -70,7 +71,7 @@ public class ItemSwitcherPlayerListener implements Listener {
                             switchHeldItem(event.getPlayer(), blockMatcher.getItemRegex());
                             break;
                         }
-                    }                    
+                    }
                 }
                 break;
         }
