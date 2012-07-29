@@ -14,6 +14,6 @@ Usage
 
 Run the command `/switcher` to toggle on and off item switching.
 
-Compatible and tested with [CraftBukkit](https://github.com/Bukkit/CraftBukkit) git-Bukkit-1.2.5-R4.0-b2222jnks and MC 1.2.5.
+Compatible and tested with [CraftBukkit](https://github.com/Bukkit/CraftBukkit) git-Bukkit-1.2.5-R5.0-b2262jnks and MC 1.2.5.
 
 [Mod page on Bukkit Dev](http://dev.bukkit.org/server-mods/item-switcher/)
