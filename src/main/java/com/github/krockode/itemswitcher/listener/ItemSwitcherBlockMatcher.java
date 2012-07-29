@@ -2,7 +2,7 @@ package com.github.krockode.itemswitcher.listener;
 
 public class ItemSwitcherBlockMatcher {
 
-    // pattern to match a block that is clicked 
+    // pattern to match a block that is clicked
     private String blockRegex;
 
     // pattern to match an item in inventory

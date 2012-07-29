@@ -1,16 +1,12 @@
 # Regular expressions match against the values of the enumeration org.bukkit.Material
 # see Material enum here: http://jd.bukkit.org/doxygen/d7/dd9/namespaceorg_1_1bukkit.html
 
-# Enable block click switching when the held item matches the following pattern (use AIR to specify an empty hand)
+enable_switching_regex_doc: |
+    Enable block click switching when the held item matches the following pattern (use AIR to specify an empty hand)
 enable_switching_regex: .*_AXE|.*_PICKAXE|.*_SPADE|AIR
 
-# Enable item switching when left clicking air (will switch to a specific item e.g. sword)
-air_click_switching:
-    enabled: false
-    item_regex: .*_SWORD
-
-# Left clicking a block that matches one of the blockregexs will
-# attempt to switch the held item to something matching the itemregex
+block_matchers_doc: |
+    Left clicking a block that matches one of the blockregexs will attempt to switch the held item to something matching the itemregex
 block_matchers:
     - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*
       item_regex:  .*_SPADE
