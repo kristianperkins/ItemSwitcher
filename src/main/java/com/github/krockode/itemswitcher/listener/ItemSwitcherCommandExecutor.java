@@ -22,7 +22,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
 
     private final Map<String, SwitcherStatus> enabledPlayers;
     private final Plugin plugin;
-    private boolean debug = true;
+    private boolean debug = false;
 
     public ItemSwitcherCommandExecutor(Plugin plugin, Map<String, SwitcherStatus> enabledPlayers) {
         this.plugin = plugin;
