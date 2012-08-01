@@ -73,7 +73,7 @@ public class ItemSwitcherPlayerListener implements Listener {
     public void onHeldItemChanged(final PlayerItemHeldEvent event) {
         SwitcherStatus status = enabledPlayers.get(event.getPlayer().getName());
         if (status != null && status.hasSwitched()) {
-            unswitchItems(status, event.getPlayer().getInventory());
+            unswitchItems(event.getPlayer().getInventory(), status);
         }
     }
 }

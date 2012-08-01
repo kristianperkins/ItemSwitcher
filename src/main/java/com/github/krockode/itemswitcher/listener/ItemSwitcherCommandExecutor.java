@@ -11,7 +11,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
@@ -47,10 +46,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
                     item.setDurability((short)(item.getType().getMaxDurability() - 3));
                 }
             }
-        } else if (debug && "x".equals(option)) {
-            PlayerItemHeldEvent event = new PlayerItemHeldEvent(player, 1, 2);
-            plugin.getServer().getPluginManager().callEvent(event);
-        }else if (enabledPlayers.keySet().contains(player.getName())) {
+        } else if (enabledPlayers.keySet().contains(player.getName())) {
             enabledPlayers.remove(player.getName());
             player.sendMessage(ChatColor.YELLOW + "Item switching Off");
         } else {
@@ -75,7 +71,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
                         playerNames.remove();
                         plugin.getLogger().fine("removing offline player: " + name);
                     } else if (status.shouldUnswitch()) {
-                        unswitchItems(status, player.getInventory());
+                        unswitchItems(player.getInventory(), status);
                         plugin.getLogger().fine("unswitching player " + name);
                     }
                 }

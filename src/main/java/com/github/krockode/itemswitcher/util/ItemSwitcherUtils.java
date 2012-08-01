@@ -13,11 +13,12 @@ public class ItemSwitcherUtils {
         ItemStack itemInHand = inventory.getContents()[heldItemSlot];
         if ((itemInHand != null) && (itemInHand.getType().toString().matches(itemPattern))) {
             // already has item of that type in hand
+            status.updateInteractTime();
             return;
         }
         if (status.hasSwitched() && inventory.getItem(status.getUnswitchedIndex()).getType().toString().matches(itemPattern)) {
             // if reverting previous switch will do, do that.
-            unswitchItems(status, inventory);
+            unswitchItems(inventory, status);
             return;
         }
 
@@ -28,7 +29,7 @@ public class ItemSwitcherUtils {
             if (item != null && item.getType().toString().matches(itemPattern)) {
                 // unswitch previous
                 if (status.getUnswitchedIndex() != null) {
-                    unswitchItems(status, inventory);
+                    unswitchItems(inventory, status);
                     itemInHand = inventory.getItemInHand();
                 }
                 inventory.setItem(i, itemInHand);
@@ -42,7 +43,7 @@ public class ItemSwitcherUtils {
         return;
     }
 
-    public static void unswitchItems(SwitcherStatus status, PlayerInventory inventory) {
+    public static void unswitchItems(PlayerInventory inventory, SwitcherStatus status) {
         int heldItemSlot = inventory.getHeldItemSlot();
         ItemStack itemInHand = inventory.getContents()[heldItemSlot];
         Integer unswitchedSlot = status.getUnswitchedIndex();
