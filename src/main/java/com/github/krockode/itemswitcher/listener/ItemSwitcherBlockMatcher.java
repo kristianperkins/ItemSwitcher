@@ -1,22 +1,24 @@
 package com.github.krockode.itemswitcher.listener;
 
+import java.util.regex.Pattern;
+
 public class ItemSwitcherBlockMatcher {
 
     // pattern to match a block that is clicked
-    private String blockRegex;
+    private Pattern blockPattern;
 
     // pattern to match an item in inventory
-    private String itemRegex;
+    private Pattern itemPattern;
 
     public ItemSwitcherBlockMatcher(String blockRegex, String itemRegex) {
-        this.blockRegex = blockRegex;
-        this.itemRegex = itemRegex;
+        this.blockPattern = Pattern.compile(blockRegex);
+        this.itemPattern = Pattern.compile(itemRegex);
     }
 
-    public String getBlockRegex() {
-        return blockRegex;
+    public Pattern getBlockPattern() {
+        return blockPattern;
     }
-    public String getItemRegex() {
-        return itemRegex;
+    public Pattern getItemRegex() {
+        return itemPattern;
     }
 }

@@ -57,7 +57,7 @@ public class ItemSwitcherPlayerListener implements Listener {
                     // switch to something useful
                     String blockTypeString = event.getClickedBlock().getType().toString();
                     for (ItemSwitcherBlockMatcher blockMatcher : blockMatchers) {
-                        if (blockTypeString.matches(blockMatcher.getBlockRegex())) {
+                        if (blockMatcher.getBlockPattern().matcher(blockTypeString).matches()) {
                             switchHeldItem(event.getPlayer(), blockMatcher.getItemRegex(), enabledPlayers.get(event.getPlayer().getName()));
                             break;
                         }

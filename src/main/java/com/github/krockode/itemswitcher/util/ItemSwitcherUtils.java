@@ -1,22 +1,24 @@
 package com.github.krockode.itemswitcher.util;
 
+import java.util.regex.Pattern;
+
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class ItemSwitcherUtils {
 
-    public static void switchHeldItem(final Player player, final String itemPattern, final SwitcherStatus status) {
+    public static void switchHeldItem(final Player player, final Pattern itemPattern, final SwitcherStatus status) {
         PlayerInventory inventory = player.getInventory();
 
         int heldItemSlot = inventory.getHeldItemSlot();
         ItemStack itemInHand = inventory.getContents()[heldItemSlot];
-        if ((itemInHand != null) && (itemInHand.getType().toString().matches(itemPattern))) {
+        if ((itemInHand != null) && (itemPattern.matcher(itemInHand.getType().toString()).matches())) {
             // already has item of that type in hand
             status.updateInteractTime();
             return;
         }
-        if (status.hasSwitched() && inventory.getItem(status.getUnswitchedIndex()).getType().toString().matches(itemPattern)) {
+        if (status.hasSwitched() && itemPattern.matcher(inventory.getItem(status.getUnswitchedIndex()).getType().toString()).matches()) {
             // if reverting previous switch will do, do that.
             unswitchItems(inventory, status);
             return;
@@ -26,7 +28,7 @@ public class ItemSwitcherUtils {
         ItemStack[] items = inventory.getContents();
         for (int i = 0; i < items.length; i++) {
             ItemStack item = items[i];
-            if (item != null && item.getType().toString().matches(itemPattern)) {
+            if (item != null && itemPattern.matcher(item.getType().toString()).matches()) {
                 // unswitch previous
                 if (status.getUnswitchedIndex() != null) {
                     unswitchItems(inventory, status);
