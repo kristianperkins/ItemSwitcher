@@ -19,6 +19,7 @@ import com.github.krockode.itemswitcher.util.SwitcherStatus;
 
 public class ItemSwitcherCommandExecutor implements CommandExecutor {
 
+    private static final int TICKS_PER_SECOND = 20;
     private final Map<String, SwitcherStatus> enabledPlayers;
     private final Plugin plugin;
     private boolean debug = false;
@@ -77,7 +78,7 @@ public class ItemSwitcherCommandExecutor implements CommandExecutor {
                 }
             } finally {
                 if (enabledPlayers.size() > 0) {
-                    plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new SwitcherUpdater(), 20);
+                    plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new SwitcherUpdater(), TICKS_PER_SECOND * 3);
                 }
             }
         }

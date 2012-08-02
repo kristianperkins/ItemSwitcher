@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
  */
 public class SwitcherStatus {
 
-    private long millisUntilUnswitch = 3000;
+    private long millisUntilUnswitch = 2000;
 
     // last time item switching was performed (including when no switch was required)
     private long lastInteract;
