@@ -19,7 +19,6 @@ public class ItemSwitcherUtils {
             return;
         }
         Integer unswitchedIndex = status.getUnswitchedIndex();
-        System.out.println("unswitched index: " + unswitchedIndex);
         if (status.hasSwitched() && unswitchedIndex != null) {
             ItemStack unswitched = inventory.getItem(unswitchedIndex);
             if (unswitched != null && itemPattern.matcher(unswitched.getType().toString()).matches()) {

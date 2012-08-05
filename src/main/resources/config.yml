@@ -8,9 +8,9 @@ enable_switching_regex: .*_AXE|.*_PICKAXE|.*_SPADE|AIR
 block_matchers_doc: |
     Left clicking a block that matches one of the blockregexs will attempt to switch the held item to something matching the itemregex
 block_matchers:
-    - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*
+    - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*|MYCEL|SOUL_SAND
       item_regex:  .*_SPADE
-    - block_regex: LOG|WOOD
+    - block_regex: LOG|WOOD.*|BOOKSHELF
       item_regex:  .*_AXE
     - description: blocks harvestable by diamond pickaxe only
       block_regex: OBSIDIAN
@@ -22,5 +22,5 @@ block_matchers:
       block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
       item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by stone or better pickaxes
-      block_regex: .*STONE|COAL_ORE|BRICK|SLAB|COBBLESTONE_STAIRS|STONE_PLATE|NETHERRACK|MOB_SPAWNER|.*FURNACE|DISPENSER
+      block_regex: .*STONE|COAL_ORE|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHERRACK|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*
       item_regex:  .*_PICKAXE
