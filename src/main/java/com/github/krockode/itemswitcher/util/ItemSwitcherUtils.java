@@ -18,10 +18,15 @@ public class ItemSwitcherUtils {
             status.updateInteractTime();
             return;
         }
-        if (status.hasSwitched() && itemPattern.matcher(inventory.getItem(status.getUnswitchedIndex()).getType().toString()).matches()) {
-            // if reverting previous switch will do, do that.
-            unswitchItems(inventory, status);
-            return;
+        Integer unswitchedIndex = status.getUnswitchedIndex();
+        System.out.println("unswitched index: " + unswitchedIndex);
+        if (status.hasSwitched() && unswitchedIndex != null) {
+            ItemStack unswitched = inventory.getItem(unswitchedIndex);
+            if (unswitched != null && itemPattern.matcher(unswitched.getType().toString()).matches()) {
+                // if reverting previous switch will do, do that.
+                unswitchItems(inventory, status);
+                return;
+            }
         }
 
         // find an item matching all or part of the itemName param
