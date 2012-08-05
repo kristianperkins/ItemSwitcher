@@ -1,0 +1,19 @@
+block_matchers_doc: |
+    Left clicking a block that matches one of the blockregexs will attempt to switch the held item to something matching the itemregex
+block_matchers:
+    - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*|MYCEL|SOUL_SAND
+      item_regex:  .*_SPADE
+    - block_regex: LOG|WOOD.*|BOOKSHELF
+      item_regex:  .*_AXE
+    - description: blocks harvestable by diamond pickaxe only
+      block_regex: OBSIDIAN
+      item_regex:  DIAMOND_PICKAXE
+    - description: blocks harvestable by diamond or iron pickaxe only
+      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|IRON_BLOCK
+      item_regex:  (IRON|DIAMOND)_PICKAXE|EMERALD.*
+    - description: blocks harvestable by stone, iron and diamond pickaxes
+      block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
+      item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
+    - description: blocks harvestable by stone or better pickaxes
+      block_regex: .*STONE|COAL_ORE|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHERRACK|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*
+      item_regex:  .*_PICKAXE
