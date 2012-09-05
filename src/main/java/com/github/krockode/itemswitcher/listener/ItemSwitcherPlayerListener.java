@@ -8,13 +8,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
 import com.github.krockode.itemswitcher.util.SwitcherStatus;
@@ -22,6 +27,7 @@ import com.github.krockode.itemswitcher.util.SwitcherStatus;
 public class ItemSwitcherPlayerListener implements Listener {
 
     private static final String MATCHERS_CONFIG_FILE = "/com/github/krockode/itemswitcher/matchers.yml";
+    private final Plugin plugin;
     private final Logger log;
     // item in hand to enable switching
     private final String enableSwitchingRegex;
@@ -29,6 +35,7 @@ public class ItemSwitcherPlayerListener implements Listener {
     private final Map<String, SwitcherStatus> enabledPlayers;
 
     public ItemSwitcherPlayerListener(final Plugin plugin, Map<String, SwitcherStatus> enabledPlayers) {
+        this.plugin = plugin;
         this.log = plugin.getLogger();
         Configuration configuration = plugin.getConfig();
         this.enabledPlayers = enabledPlayers;
@@ -66,6 +73,49 @@ public class ItemSwitcherPlayerListener implements Listener {
                     }
                 }
                 break;
+        }
+    }
+
+    // Handle block place switching
+    // runs on high priority to let others cancel event
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
+    public void onItemPlace(final BlockPlaceEvent event) {
+        if (!enabledPlayers.keySet().contains(event.getPlayer().getName())) {
+            return;
+        }
+        if (!event.isCancelled() && event.getItemInHand().getAmount() == 1) {
+            Player player = event.getPlayer();
+            BlockSwitcher blockSwitcher = new BlockSwitcher(player, player.getInventory().getHeldItemSlot(), event.getItemInHand().getType());
+            plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, blockSwitcher);
+        }
+    }
+
+    private class BlockSwitcher implements Runnable {
+
+        private Player player;
+        private int itemIndex;
+        private Material type;
+
+        public BlockSwitcher(Player player, int itemIndex, Material type) {
+            this.player = player;
+            this.itemIndex = itemIndex;
+            this.type = type;
+        }
+
+        public void run() {
+            PlayerInventory inventory = player.getInventory();
+            ItemStack itemInHand = player.getItemInHand();
+            if ((inventory.getHeldItemSlot() == itemIndex) && itemInHand.getType() == Material.AIR) {
+                ItemStack[] items = inventory.getContents();
+                for (int i = 0; i < items.length; i++) {
+                    ItemStack item = items[i];
+                    if (item != null && item.getType() == type) {
+                        player.setItemInHand(item);
+                        inventory.setItem(i, itemInHand);
+                        break;
+                    }
+                }
+            }
         }
     }
 
