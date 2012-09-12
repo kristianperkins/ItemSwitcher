@@ -3,13 +3,11 @@ ItemSwitcher
 
 Bukkit plugin to automatically switch held item as needed.
 
-Mining
-------
+### Mining ###
 
 Switches between axe, pickaxe and shovel depending on what block you are trying to mine.
 
-Building
---------
+### Building ###
 
 When the currently held item stack runs out, will search your inventory to find another stack of the same block type to switch to.
 
