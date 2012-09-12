@@ -22,10 +22,10 @@ Usage
 Run the command `/switcher` to toggle on and off item switching.
 
 Links
---------
+-----
 
 * See the [Mod page on Bukkit Dev](http://dev.bukkit.org/server-mods/item-switcher/) for up to date information.
-* [Travis builds](http://travis-ci.org/#!/krockode/ItemSwitcher)
+* [Travis builds](http://travis-ci.org/krockode/ItemSwitcher) [![Build Status](https://secure.travis-ci.org/krockode/ItemSwitcher.png)](http://travis-ci.org/krockode/ItemSwitcher)
 * MCStats [Usage Statistics](https://mcstats.org/plugin/ItemSwitcher)
 
 ![Usage Statistics](https://mcstats.org/signature/itemswitcher.png)
