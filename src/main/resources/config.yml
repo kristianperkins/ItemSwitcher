@@ -3,4 +3,4 @@
 
 enable_switching_regex_doc: |
     Enable block click switching when the held item matches the following pattern (use AIR to specify an empty hand)
-enable_switching_regex: .*_AXE|.*_PICKAXE|.*_SPADE|AIR
+enable_switching_regex: .*_AXE|.*_PICKAXE|.*_SPADE|SHEARS|AIR

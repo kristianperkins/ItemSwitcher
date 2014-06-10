@@ -3,7 +3,7 @@ block_matchers_doc: |
 block_matchers:
     - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*|MYCEL|SOUL_SAND
       item_regex:  .*_SPADE
-    - block_regex: LOG|WOOD.*|BOOKSHELF
+    - block_regex: LOG.*|WOOD.*|BOOKSHELF|FENCE|(ACACIA|DARK_OAK|.*_WOOD)_STAIRS|.*CHEST
       item_regex:  .*_AXE
     - description: blocks harvestable by diamond pickaxe only
       block_regex: OBSIDIAN
@@ -14,6 +14,9 @@ block_matchers:
     - description: blocks harvestable by stone, iron and diamond pickaxes
       block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
       item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
-    - description: blocks harvestable by stone or better pickaxes
-      block_regex: .*STONE|COAL_ORE|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHERRACK|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*
+    - description: blocks harvestable by wood or better pickaxes
+      block_regex: .*STONE|COAL_.*|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHER.*|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*|REDSTONE_LAMP.*|HOPPER|DROPPER|ANVIL|QUARTZ.*|.*_CLAY|.*GLASS.*|.*ICE|REDSTONE_BLOCK|COBBLE_WALL|BEACON
       item_regex:  .*_PICKAXE
+    - description: blocks harvestable by shears
+      block_regex: .*LEAVES|LONG_GRASS|WEB|DEAD_BUSH|VINE
+      item_regex:  SHEARS
