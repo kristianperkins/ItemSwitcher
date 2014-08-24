@@ -2,6 +2,7 @@ name: ItemSwitcher
 main: com.github.krockode.itemswitcher.ItemSwitcher
 version: ${project.version}
 author: krockode
+authors: [Flexo013]
 description: When enabled will automatically switch between tools during mining. 
 commands:
    switcher:
