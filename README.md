@@ -28,4 +28,4 @@ Links
 * [Travis builds](http://travis-ci.org/krockode/ItemSwitcher) [![Build Status](https://secure.travis-ci.org/krockode/ItemSwitcher.png)](http://travis-ci.org/krockode/ItemSwitcher)
 * MCStats [Usage Statistics](https://mcstats.org/plugin/ItemSwitcher)
 
-![Usage Statistics](https://mcstats.org/signature/itemswitcher.png)
+![Usage Statistics](http://mcstats.org/signature/itemswitcher.png)
