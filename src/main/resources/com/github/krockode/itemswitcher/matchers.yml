@@ -3,7 +3,7 @@ block_matchers_doc: |
 block_matchers:
     - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*|MYCEL|SOUL_SAND
       item_regex:  .*_SPADE
-    - block_regex: LOG.*|WOOD.*|BOOKSHELF|.*FENCE|(ACACIA|DARK_OAK|.*_WOOD)_STAIRS|.*CHEST|(ACACIA|BIRCH|DARK_OAK|JUNGLE|SPRUCE|WOODEN|TRAP)_DOOR
+    - block_regex: LOG.*|WOOD.*|BOOKSHELF|.*FENCE|(ACACIA|DARK_OAK|.*_WOOD)_STAIRS|.*CHEST|(ACACIA|BIRCH|DARK_OAK|JUNGLE|SPRUCE|WOODEN|TRAP)_DOOR|.*_FENCE_GATE
       item_regex:  .*_AXE
     - description: blocks harvestable by diamond pickaxe only
       block_regex: OBSIDIAN
