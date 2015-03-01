@@ -9,10 +9,10 @@ block_matchers:
       block_regex: OBSIDIAN
       item_regex:  DIAMOND_PICKAXE
     - description: blocks harvestable by diamond or iron pickaxe only
-      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|IRON_BLOCK|EMERALD.*
+      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|EMERALD.*
       item_regex:  (IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by stone, iron and diamond pickaxes
-      block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
+      block_regex: (IRON|LAPIS)_ORE|(IRON|LAPIS)_BLOCK
       item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by wood or better pickaxes
       block_regex: .*STONE|COAL_.*|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHER.*|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*|REDSTONE_LAMP.*|HOPPER|DROPPER|ANVIL|QUARTZ.*|.*_CLAY|.*GLASS.*|.*ICE|REDSTONE_BLOCK|COBBLE_WALL|BEACON|IRON_(DOOR_BLOCK|TRAPDOOR)
