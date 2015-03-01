@@ -12,7 +12,7 @@ block_matchers:
       block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|EMERALD.*
       item_regex:  (IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by stone, iron and diamond pickaxes
-      block_regex: (IRON|LAPIS)_ORE|(IRON|LAPIS)_BLOCK
+      block_regex: (IRON|LAPIS)_(ORE|BLOCK)
       item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by wood or better pickaxes
       block_regex: .*STONE|COAL_.*|BRICK.*|SLAB|COBBLESTONE_STAIRS|NETHER.*|MOB_SPAWNER|.*FURNACE|DISPENSER|IRON_FENCE|SMOOTH_.*|REDSTONE_(LAMP.*|BLOCK)|HOPPER|DROPPER|ANVIL|QUARTZ.*|.*_CLAY|.*GLASS.*|.*ICE|REDSTONE_BLOCK|COBBLE_WALL|BEACON|IRON_(DOOR_BLOCK|TRAPDOOR)|PRISMARINE|(STONE|GOLD|IRON)_PLATE|.*SANDSTONE.*
