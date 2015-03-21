@@ -3,19 +3,19 @@ block_matchers_doc: |
 block_matchers:
     - block_regex: DIRT|GRASS|GRAVEL|SAND|CLAY|SNOW.*|MYCEL|SOUL_SAND
       item_regex:  .*_SPADE
-    - block_regex: LOG.*|WOOD.*|BOOKSHELF|FENCE|(ACACIA|DARK_OAK|.*_WOOD)_STAIRS|.*CHEST
+    - block_regex: LOG.*|WOOD.*|BOOKSHELF|.*FENCE|(ACACIA|DARK_OAK|.*_WOOD)_STAIRS|.*CHEST|(ACACIA|BIRCH|DARK_OAK|JUNGLE|SPRUCE|WOODEN|TRAP)_DOOR|.*_FENCE_GATE
       item_regex:  .*_AXE
     - description: blocks harvestable by diamond pickaxe only
       block_regex: OBSIDIAN
       item_regex:  DIAMOND_PICKAXE
     - description: blocks harvestable by diamond or iron pickaxe only
-      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|IRON_BLOCK|EMERALD.*
+      block_regex: DIAMOND_.*|GOLD_(BLOCK|ORE)|.*REDSTONE_ORE|EMERALD.*
       item_regex:  (IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by stone, iron and diamond pickaxes
-      block_regex: (IRON|LAPIS)_ORE|LAPIS_BLOCK
+      block_regex: (IRON|LAPIS)_(ORE|BLOCK)
       item_regex:  (STONE|IRON|DIAMOND)_PICKAXE
     - description: blocks harvestable by wood or better pickaxes
-      block_regex: .*STONE|COAL_.*|BRICK.*|SLAB|(COBBLESTONE|SMOOTH)_STAIRS|STONE_PLATE|NETHER.*|MOB_SPAWNER|.*FURNACE|DISPENSER|MONSTER_EGGS|IRON_FENCE|SMOOTH_.*|REDSTONE_LAMP.*|HOPPER|DROPPER|ANVIL|QUARTZ.*|.*_CLAY|.*GLASS.*|.*ICE|REDSTONE_BLOCK|COBBLE_WALL|BEACON
+      block_regex: .*STONE|COAL_.*|BRICK.*|SLAB|COBBLESTONE_STAIRS|NETHER.*|MOB_SPAWNER|.*FURNACE|DISPENSER|IRON_FENCE|SMOOTH_.*|REDSTONE_(LAMP.*|BLOCK)|HOPPER|DROPPER|ANVIL|QUARTZ.*|.*_CLAY|.*GLASS.*|.*ICE|REDSTONE_BLOCK|COBBLE_WALL|BEACON|IRON_(DOOR_BLOCK|TRAPDOOR)|PRISMARINE|(STONE|GOLD|IRON)_PLATE|.*SANDSTONE.*
       item_regex:  .*_PICKAXE
     - description: blocks harvestable by shears
       block_regex: .*LEAVES|LONG_GRASS|WEB|DEAD_BUSH|VINE
