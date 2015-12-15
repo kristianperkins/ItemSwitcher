@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.krockode</groupId>
   <artifactId>ItemSwitcher</artifactId>
-  <version>0.1.6</version>
+  <version>0.1.6-SNAPSHOT</version>
   <url>https://github.com/krockode/ItemSwitcher</url>
 
   <properties>
@@ -34,11 +34,6 @@
    <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.7.9-R0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
             <version>1.7.9-R0.2</version>
         </dependency>
   </dependencies>
